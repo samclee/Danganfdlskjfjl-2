@@ -1,0 +1,119 @@
+
+
+
+ti = require 'timer'
+phr = require 'phr'
+setmetatable(_G, {
+  __index = require('cargo').init('/')
+})
+
+function create_word(str, correct)
+	local x, y =  m()*scrnw, rnd(mscrnh-scrnh/3, mscrnh+scrnh/3)
+	local sx, sy = rnd(1,2), rnd(1,2)
+	local w, h = strw(str) * sx, strh(str) * sy
+	return {str = str, x=x, y=y, w=w, h=h, cor = correct, dir = mn(), spd = rndi(1,2)}
+end
+
+function update_word(w)
+	w.x = w.x + w.spd * w.dir
+	w.x = mod(w.x, scrnw)
+end
+
+function draw_word(w)
+	local c = cond(w.cor, {0,1,1}, {1,1,1})
+	prtc(w.str, w.x, w.y, {clr = c});
+end
+
+function load_kid(ind)
+	local info = phr[i]
+	cor_ind = info[5]
+	for i=1,3 do
+		words[i] = create_word(info[i], i == cor_ind)
+		proof = phr[4]
+	end
+end
+
+function shoot(x, y)
+	bullet.ox, bullet.oy = x, y
+	ti.tween(0.1, bullet, {x = 0}, 'linear', function() 
+		bullet.x = scrnw * 2
+		if words_active and inb(x, y, words[cor_ind]) then
+			switch_kids()
+		end
+	end)
+end
+
+function switch_kids()
+	words_active = false
+	i(lvl)
+	bspr.x, bspr.y, bspr.r = mscrnw, mscrnh, 0
+	mspr.x, mspr.y = scrnw + 500, mscrnh + scrnh / 3
+	ti.tween(1, bspr, {x = -500, y = -500, r = 7 * math.pi}, 'linear')
+	ti.tween(1, mspr, {x = mscrnw, y = mscrnh}, 'linear', function ()
+		words_active = true
+	end)
+end
+
+function love.load()
+	bspr = {x = -500, y = -500, r = 0}
+	mspr = {x = mscrnh, y = mscrnh}
+	proof = ''
+	lvl = 1
+	st = 1
+	words_active = false
+	bullet = {x = 700, ox = 0, oy = 0}
+	cx, cy = 0, 0
+	words = {}
+	kids = {}
+	for i=0,14 do
+		add(kids, love.grpahics.newQuad(i * 32, 0, a.sheet:getWidth(), a.sheet:getHeight(), 32, 32)
+	end
+	load_kid(1)
+end
+
+function love.update()
+	if st == 2 then
+		foreach(words, update_word)
+	end
+	cx, cy = lm.getPosition()
+end
+
+function love.draw()
+	if st == 1 then
+		// draw title
+	elseif st == 2 then
+		// draw bg
+		// draw blast kid
+		// draw main kid
+		// draw proof
+		// draw words if active
+		if words_active then
+			foreach(words, draw_word)
+		end
+		// draw cursor
+		sprc(a.cursor, cx, cy)
+		// draw bullet
+		lg.push()
+		lg.translate(bullet.ox, bullet.oy)
+		lg.rotate(rad(30)
+			prt(proof, bullet.x, strh(proof)/2)
+		lg.pop()
+	end
+end
+
+function love.update()
+	if st == 1 then
+	
+	elseif st == 2 then
+		foreach(words, update_word)
+	end
+end
+
+function love.mousepressed(x, y, btn)
+	if st == 1 then
+		words_active = true
+		st = 2
+	elseif st == 2 and words_active then
+		shoot(x, y)
+	end
+end
