@@ -260,6 +260,13 @@ function sprsh(img, quad, x, y, ...)
     love.graphics.setColor(prev_clr)
 end
 
+function pushtransro(x, y, ...)
+    local r = first({...}) or 0
+    love.graphics.push()
+    love.graphics.translate(x, y)
+    love.graphics.rotate(r)
+end
+
 -- string logic - DONE
 function strlen(str)
     return string.len(str)

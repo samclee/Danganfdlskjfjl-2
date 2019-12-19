@@ -48,7 +48,11 @@ function love.draw()
         -- draw main kid
         --spr(kids[lvl], mspr.x, mspr.y)
         -- draw proof
-        prt(proof, 30, 400, {r = -rad(20)})
+        pushtransro(30, 400, -rad(20))
+            rectf(-10, 10, 170, 54, {0.3, 0.3, 0.3})
+            circf(160, 37, 27, {0.3, 0.3, 0.3})
+            prt(proof, 0, 0)
+        lg.pop()
 		-- draw words if active
 		if words_active then
 			foreach(words, draw_word)
@@ -60,9 +64,7 @@ function love.draw()
         line(cx, cy-12, cx, cy-36, {1, 0.5, 0}, 5)
         line(cx, cy+12, cx, cy+36, {1, 0.5, 0}, 5)
 		-- draw bullet
-		lg.push()
-		lg.translate(bullet.ox, bullet.oy)
-        lg.rotate(rad(-30))
+		pushtransro(bullet.ox, bullet.oy, rad(-30))
 			prt(proof, bullet.x, -strh(proof)/2)
         lg.pop()
     end
