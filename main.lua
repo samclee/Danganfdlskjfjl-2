@@ -41,7 +41,6 @@ function love.draw()
     if st == 1 then
 		prtc('stage 1', mscrw, mscrh)
     elseif st == 2 then
-        prtc('stage 2', mscrw, mscrh)
 		-- draw bg
         -- draw blast kid
         --spr(kids[max(lvl, 1-1)], bspr.x, bspr.y)
