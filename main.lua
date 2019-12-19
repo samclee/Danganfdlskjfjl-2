@@ -18,9 +18,10 @@ function love.load()
 	bullet = {x = scrw * 2, ox = 0, oy = 0}
 	cx, cy = 0, 0
 	words = {}
-	kids = {}
-	for i=0,14 do
-		--add(kids, love.graphics.newQuad(i * 32, 0, a.sheet:getWidth(), a.sheet:getHeight(), 32, 32)
+    kids = {}
+    local names = {}
+	for i=1,16 do
+		--add(kids, imgs[names[i]])
     end
     lg.setNewFont('neut.ttf', 60)
 	load_kid(1)
@@ -40,8 +41,10 @@ function love.draw()
     elseif st == 2 then
         prtc('stage 2', mscrw, mscrh)
 		-- draw bg
-		-- draw blast kid
-		-- draw main kid
+        -- draw blast kid
+        --spr(kids[max(lvl, 1-1)], bspr.x, bspr.y)
+        -- draw main kid
+        --spr(kids[lvl], mspr.x, mspr.y)
         -- draw proof
         prt(proof, 30, 400, {r = -rad(20)})
 		-- draw words if active
