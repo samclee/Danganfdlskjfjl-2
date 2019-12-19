@@ -17,13 +17,13 @@ local phr = {
 {
     'I BUKI MIO DA',
     'tfw no genki gf',
-    'c',
+    'angelic voice',
     'f',
 },
 -- Nagito
 {
     'KANYE WEST LIKES',
-    'nah nagito sucks',
+    'this dude sucks',
     'this dude\'s a clown',
     'f',
 },

@@ -136,20 +136,60 @@ function rectfc(x, y, w, h, ...)
     _rect(x, y, w, h, opts)
 end
 
-function circ(x, y, r, opts)
-    love.graphics.circle('line', x, y, r)
+function _circ(x, y, r, opts)
+    local prev_clr = {love.graphics.getColor()}
+    local prev_line_wid = love.graphics.getLineWidth()
+    if opts.clr then
+        love.graphics.setColor(opts.clr)
+    end
+    if opts.w then
+        love.graphics.setLineWidth(opts.w)
+    end
+
+    love.graphics.circle(opts.mode, x, y, r)
+
+    if opts.clr then
+        love.graphics.setColor(prev_clr)
+    end
+    if opts.w then
+        love.graphics.setLineWidth(prev_line_wid)
+    end
 end
 
-function ell(x, y, opts)
-
+function circ(x, y, r, ...)
+    local opts = { mode = 'line' }
+    opts.clr = sel({...},1)
+    opts.w = sel({...},2)
+    _circ(x, y, r, opts)
 end
 
-function circfill(x, y, r, opts)
-    love.graphics.circle('fill', x, y, r)
+function circf(x, y, r, ...)
+    local opts = { mode = 'fill' }
+    opts.clr = sel({...},1)
+    _circ(x, y, r, opts)
 end
 
-function ellfill(x, y, opts)
+function line(x1, y1, x2, y2, ...)
+    local clr = sel({...},1)
+    local w = sel({...},2)
 
+    local prev_clr = {love.graphics.getColor()}
+    local prev_line_wid = love.graphics.getLineWidth()
+    if clr then
+        love.graphics.setColor(clr)
+    end
+    if w then
+        love.graphics.setLineWidth(w)
+    end
+
+    love.graphics.line(x1, y1, x2, y2)
+
+    if clr then
+        love.graphics.setColor(prev_clr)
+    end
+    if w then
+        love.graphics.setLineWidth(prev_line_wid)
+    end
 end
 
 -- trig math
@@ -364,8 +404,8 @@ function mz()
 end
 
 -- Sound
-function mus(str)
-    local src = love.audio.newSource(str)
+function msc(str)
+    local src = love.audio.newSource(str, 'stream')
     src:setLooping(true)
     src:play()
 

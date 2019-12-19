@@ -23,8 +23,10 @@ function love.load()
 	for i=1,16 do
 		--add(kids, imgs[names[i]])
     end
-    lg.setNewFont('neut.ttf', 60)
-	load_kid(1)
+    lg.setNewFont('neut.ttf', 50)
+    load_kid(1)
+    msc('kazoo.mp3')
+    lm.setVisible(false)
 end
 
 function love.update(dt)
@@ -52,8 +54,11 @@ function love.draw()
 			foreach(words, draw_word)
 		end
 		-- draw cursor
-        --sprc(a.cursor, cx, cy)
-            rectc(cx, cy, 128, 128)
+        circ(cx, cy, 24, {1, 0.5, 0}, 5)
+        line(cx-12, cy, cx-36, cy, {1, 0.5, 0}, 5)
+        line(cx+12, cy, cx+36, cy, {1, 0.5, 0}, 5)
+        line(cx, cy-12, cx, cy-36, {1, 0.5, 0}, 5)
+        line(cx, cy+12, cx, cy+36, {1, 0.5, 0}, 5)
 		-- draw bullet
 		lg.push()
 		lg.translate(bullet.ox, bullet.oy)
@@ -84,7 +89,7 @@ end
 function create_word(str, correct)
 	local x, y =  mz()*scrw, rnd(.1 * scrh, .7 * scrh)
 	local w, h = strw(str), strh(str)
-	return {str=str, x=x, y=y, w=w, h=h, cor=correct, dir = mn(), spd = rnd(2,4)}
+	return {str=str, x=x, y=y, w=w, h=h, cor=correct, dir = -1, spd = rnd(2,4)}
 end
 
 function update_word(w)
