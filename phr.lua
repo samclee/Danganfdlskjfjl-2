@@ -1,17 +1,19 @@
 local phr = {
--- Chiaki
+-- Sonia
 {
-    'tfw no gamer girl gf',
-    'chiaki pls marry me',
-    'i would die for you',
+    'tfw no ojou-sama gf',
+    'hidden freaky side',
+    'yas queen',
     'f',
+    'sonia'
 },
 -- Togame
 {
     'CHONK',
-    'loyal af',
+    'natural leader',
     'actual best boy',
     'm',
+    'byakuya'
 },
 -- Ibuki
 {
@@ -19,41 +21,47 @@ local phr = {
     'tfw no genki gf',
     'angelic voice',
     'f',
+    'ibuki'
 },
 -- Nagito
 {
     'KANYE WEST LIKES',
-    'this dude sucks',
+    'H O P E',
     'this dude\'s a clown',
     'f',
+    'nagito'
 },
 -- Akane
 {
     'tfw no tomboy gf',
-    'b',
-    'c',
+    'crush me with those thighs',
+    'no personality :(',
     'f',
+    'akane'
 },
 -- Gundham
 {
     'i want him to breed me uwu',
-    'good with animals',
-    'hair on POINT',
+    'adorably good with animals',
+    'tfw no chuuni bf',
     'm',
+    'gundham'
 },
 -- Hiyoko
 {
     'cute and mean',
     'idk bro she looks kinda young',
-    'do ppl actually like her',
+    'oh shit is that the fbi',
     'f',
+    'hiyoko'
 },
 -- Nekomaru
 {
     'tfw no bara bf',
     'imagine being princess carried',
-    'c',
+    'chad energy',
     'm',
+    'nekomaru'
 },
 -- Mahiru
 {
@@ -61,13 +69,63 @@ local phr = {
     'THE CUTEST',
     'THE CUTEST',
     'f',
+    'mahiru'
 },
 -- Teruteru
 {
     'canonically bi',
     'epic jojo reference hair',
     'gimme dat meat on the bone',
+    'm',
+    'teruteru'
+},
+-- Peko
+{
+    'tfw no kuudere gf',
+    'LOYAL AF',
+    'adorably bad with animals',
     'f',
+    'pekoyama'
+},
+-- fuyuhiko
+{
+    'ANGERGY',
+    'boss baby',
+    'fashion eyepatch',
+    'm',
+    'fuyuhiko'
+},
+-- Mikan
+{
+    'definition of \"baby\"',
+    'cinnamon bun',
+    'PROTECC',
+    'f',
+    'mikan'
+},
+-- Kazuichi
+{
+    'pink yosuke',
+    'tru homie',
+    'shark teeth',
+    'm',
+    'kazuichi'
+},
+-- Chiaki
+{
+    'tfw no gamer girl gf',
+    'chiaki pls marry me',
+    'i would die for you',
+    'f',
+    'chiaki'
+},
+-- Hajime
+{
+    'tfw no normie bf',
+    'self-defense ahoge',
+    'best protag',
+    'm',
+    'hajime'
 },
 
 }
